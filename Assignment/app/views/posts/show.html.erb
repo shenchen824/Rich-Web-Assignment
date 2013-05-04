@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+    	<div class="well sidebar-nav">
+		  <ul class="nav nav-list">
+          <li class="nav-header">Menu</li>
+          <li class="active"><%= link_to 'Back', posts_path %></li>
+		  <% if @post.user_id == current_user.id%>
+		  	<li><%= link_to 'Edit Post', edit_post_path(@post) %></li>
+		  	<li><%= link_to 'Delete Post', @post, :method => :delete, :confirm => "Do you want to delete? " %></li>
+		  <%end%>
+          </ul>
+        </div>
+    </div>
+    <div class="span10">
+
+    	<table class="table table-striped">
+			<tr>
+				<td><b>Title</b></td>
+				<td><%= @post.title %></td>
+			</tr>
+			<tr>
+				<td><b>Content</b></td>
+				<td><%= @post.contents %></td>
+			</tr>
+			<tr>
+				<td><b>Post By</b></td>
+				<td><%= @post.user.username %></td>
+			</tr>
+			<tr>
+				<td><b>Post at</b></td>
+				<td><%= @post.created_at %></td>
+			</tr>
+
+			<tr>
+				<td><b>Comments</b></td>
+				<td><%= @post.comments.size %></td>
+			</tr>
+		</table>
+
+		<% @post.comments.each do |comment| %>
+		    <h5>Comment</h5>
+		   	<div class="hero-unit">
+			    <%= comment.text%>
+			    <table class="table table-striped">
+				<tbody>		
+				<tr class="success">
+					<td><p>Comment Time: <%= comment.created_at %></P></td>
+					<td><p>Comment By: <%= comment.user.username %></P></td>
+			        <% if comment.user_id == current_user.id%>
+			        	<td><p><%= link_to 'Delete', [comment.post, comment], :confirm => 'Do you want to delete this comment?', :method => :delete %></P></td>
+			        <% end %>	
+			    </tr>
+				</tbody>
+            </table>	
+            </div>
+			
+	    <%end%>
+        <%= form_for([@post, @comment]) do |f| %>
+			<p><%= f.text_area :text, :style => "width:800px"%></p>
+			<p><%= f.submit "Add Comments", :class => 'btn btn-success'%></p>
+		<%end%>
+    </div>
+  </div>
+</div>
+

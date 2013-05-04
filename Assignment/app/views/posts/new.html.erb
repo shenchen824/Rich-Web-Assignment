@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+      <li class="nav-header">Menu</li>
+      <li class="active"><%= link_to 'Post View Page', posts_path %></li>
+      <li><%= link_to 'Back', posts_path %></li>
+      </ul>
+      </div>
+    </div>
+    <div class="span10">
+      <h2>New Post</h2>
+      <%= render 'form' %>  
+    </div>
+  </div>
+</div>
+

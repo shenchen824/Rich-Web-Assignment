@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+    	<div class="well sidebar-nav">
+		  <ul class="nav nav-list">
+		  <li class="nav-header">Menu</li>
+		  <li class="active"><%= link_to 'New Post', new_post_path %></li>
+          </ul>
+        </div>
+    </div>
+    <div class="span10">
+    	<form class="form-search">
+    		 <div class="input-append">
+    			<input type="text" class="input-medium search-query" name="search">
+    			<button type="submit" class="btn btn-primary">Search</button>
+  			</div>
+		</form>
+    	<table class="table table-hover">
+			<thead>
+			    <tr>
+			      <th>Qestion title</th>
+			      <th>Qestion content</th>
+			      <th>Post time</th>
+			      <th>Post by</th>
+			      <th>Comments</th>
+			    </tr>
+			</thead>
+			<tbody>
+				<% @posts.each do |post| %>
+				<tr>
+					<td><p><%= link_to post.title,post %></p></td>
+					<td><p><%= truncate post.contents %></p></td>
+					<td><p><%= time_ago_in_words post.created_at %> ago</P></td>
+					<td><p><%= post.user.username %></P></td>
+					<td><p><%= link_to post.comments.size, post%></P></td>
+			    </tr>
+			    <% end %>
+			</tbody>
+        </table>
+    </div>
+  </div>
+</div>
