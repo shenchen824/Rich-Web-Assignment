@@ -29,6 +29,9 @@ Before students post the questions, they need to sign up as a member of this web
 Students can edit their own account and their posted question, and also delete any comments which are added by themselves. 
 The students who do not sign in only can view the list of posted questions and search the questions' title
 
+
+Reference: Gem Devise, access from https://github.com/plataformatec/devise
+
 ===================
 D09118187
 Chen Shen
