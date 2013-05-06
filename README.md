@@ -4,6 +4,8 @@ Student Name: Chen Shen
 Student Number: D09118187
 
 Project Name: Lecture Interaction Board
+Project Type: Individual Work
+Owner: Chen Shen(shenchen824)
 Used Technologies: Ruby on Rails; Twitter Bootstrap;
 Used Gem: Devise (Reference from https://github.com/plataformatec/devise)
 
