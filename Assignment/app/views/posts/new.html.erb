@@ -1,5 +1,8 @@
+<!--Generate from: rails generate model Post title:string contents:text-->
+<!--This is the page which is used for post adding-->
 <div class="container-fluid">
   <div class="row-fluid">
+    <!--nagivation menu is loacted on lefe site-->
     <div class="span2">
       <div class="well sidebar-nav">
       <ul class="nav nav-list">
@@ -9,6 +12,7 @@
       </ul>
       </div>
     </div>
+    <!--form is loacted on right site-->
     <div class="span10">
       <h2>New Post</h2>
       <%= render 'form' %>  

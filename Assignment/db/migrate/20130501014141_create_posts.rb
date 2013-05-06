@@ -1,3 +1,4 @@
+# This file is for creating post table
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|

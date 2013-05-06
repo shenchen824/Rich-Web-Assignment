@@ -7,32 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!--navigation bar-->
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
   <div class="container">
+    <!--Buttons-->
     <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     </button>
+    <!-- navigation bar title-->
     <a class="brand">DIT White Board</a>
+    <!--Buttons with label-->
     <div class="nav-collapse collapse">
     <ul class="nav">
       <li class="active"><%= link_to 'Home', home_path%></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#Contact" data-toggle="modal">Contact</a></li>
+      <li><a href="#About" data-toggle="modal">About</a></li>
     </ul>
+    <!--user control button by using dropdown menu-->
     <form class="navbar-form pull-right">
         <div class="btn-group">
           <a class="btn btn-primary"><i class="icon-user icon-white"></i> User</a>
           <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
           <ul class="dropdown-menu">
+              <!--check user whether login already-->
+              <!--if user has login already-->
+              <!--show edit and logout options-->
               <% if user_signed_in? %>
               <li>
                 <li><a href="/users/edit"><i class="icon-pencil"></i> Edit</a></li>
                 <li class="divider"></li>
                 <li><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></li>
               </li>
+              <!--if user has not login already-->
+              <!--show sign up and sign in options-->
               <% else %>
               <li>
                 <li><a href="/users/sign_up"><i class="icon-plus-sign"></i>  Register</a></li>
@@ -46,8 +56,38 @@
   </div>
   </div>
 </div>
+
+<!--Error messages and notice message-->
 <div class="errormessage1"><p class="notice pull-center"><%= notice %></p></div>
 <div class="errormessage1"><p class="notice pull-center"><%= alert %></p></div>
+
+<!--showing the contact dialog by using bootstrap modal-->
+<div id="Contact" class="modal hide fade" role="dialog" aria-labelledby="Modal_Label_1" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="Modal_Label_1">Contact detail</h3>
+  </div>
+  <div class="modal-body">
+    <p>Email: shenchen824@hotmail.com</p>
+    <p>Email: chen.shen@student.dit.ie</p>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+<!--showing the About dialog by using bootstrap modal-->
+<div id="About" class="modal hide fade" role="dialog" aria-labelledby="Modal_Label_2" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="Modal_Label_2">Lecture Interaction Board</h3>
+  </div>
+  <div class="modal-body">
+    <p>students can anonymously post questions during a lecture and other students can add their own comments to these question. Before students post the questions, they need to sign up as a member of this website and sign in. Students can edit their own account and their posted question, and also delete any comments which are added by themselves. The students who do not sign in only can view the list of posted questions and search the questions' title</p>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
 <%= yield %>
 </body>
 </html>

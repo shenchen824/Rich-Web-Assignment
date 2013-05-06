@@ -1,3 +1,5 @@
+# Reference: gem devise user models, avaliable: https://github.com/plataformatec/devise
+# This file is for creating user table
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
@@ -18,6 +20,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      # Add username into user table
+      # t.string   :username
 
       ## Confirmable
       # t.string   :confirmation_token

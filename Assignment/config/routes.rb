@@ -1,11 +1,13 @@
 Assignment::Application.routes.draw do
-  get "comments/create"
-  get "comments/destroy"
+  #define the routes for post and comment
   resources :posts do
     resources :comments
   end
 
+  #define the routes for devise user
   devise_for :users
+
+  #define home page route
   get "home/index"
   match 'home' => 'home#index',:action=>"index"
   root :to => "home#index"

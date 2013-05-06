@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order(params[:sort])
+    #prepare for post title searching in index page
     @posts = Post.search(params[:search])
     respond_to do |format|
       format.html # index.html.erb
@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    #build the post, set the curret login user as the owner
     @post = current_user.posts.build(params[:post])
     #@post = Post.new(params[:post])
 

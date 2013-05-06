@@ -1,5 +1,8 @@
+<!--Generate from: rails generate model Post title:string contents:text-->
+<!--This is the form page which is used for post editing or adding-->
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
+    <!--showing the error message when errors happened-->
     <div id="error_explanation" class="errormessage2">
       <%= pluralize(@post.errors.count, "error") %>
       <ul>
@@ -9,14 +12,17 @@
       </ul>
     </div>
   <% end %>
+  <!--post title field-->
   <div class="field">
     <%= f.label :title %><br/>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Type Title Here ..."%>
   </div>
+  <!--post content field-->
   <div class="field">
     <%= f.label :contents %><br/>
-    <%= f.text_area :contents, :style => "width:800px"%>
+    <%= f.text_area :contents, :style => "width:800px", placeholder: "Type Post Here ..."%>
   </div>
+  <!--post add button -->
   <div class="actions">
     <p><%= f.submit "Add Post", :class => 'btn btn-success'%></p>
   </div>

@@ -1,6 +1,9 @@
+<!--Generate from: rails generate model Post title:string contents:text-->
+<!--This is the page which is used for showing the list of posts-->
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
+    	<!--nagivation menu is loacted on lefe site-->
     	<div class="well sidebar-nav">
 		  <ul class="nav nav-list">
 		  <li class="nav-header">Menu</li>
@@ -8,13 +11,16 @@
           </ul>
         </div>
     </div>
+    <!--list of posts is loacted on right site-->
     <div class="span10">
+    	<!-- posts title searching form-->
     	<form class="form-search">
     		 <div class="input-append">
     			<input type="text" class="input-medium search-query" name="search">
     			<button type="submit" class="btn btn-primary">Search</button>
   			</div>
 		</form>
+		<!--list of posts is shown by using table-->
     	<table class="table table-hover">
 			<thead>
 			    <tr>

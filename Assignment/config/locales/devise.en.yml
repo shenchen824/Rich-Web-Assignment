@@ -1,5 +1,6 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
+# Reference: gem devise user models, avaliable: https://github.com/plataformatec/devise
+# This file is used for defining each flash showing message such as some error messages and successful messages
 en:
   devise:
     confirmations:
